@@ -312,7 +312,7 @@ body.alt-theme option:checked {
                 alert("Por favor, digite uma tarefa!");
                 return;
             }
-            let req = await fetch("http://localhost:8080/tarefa", {
+            let req = await fetch("https://tarefas-api-wozp.onrender.com/tarefas", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

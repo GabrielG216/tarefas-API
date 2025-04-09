@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <!-- <link rel="stylesheet" href="style.css">-->  
+    <style>
+        /* Tema padrão (verde e branco) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 400px; /* Limita a largura máxima */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1em;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ol {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 400px; /* Limita a largura máxima */
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+li button {
+    background-color: #f44336;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+li button:hover {
+    background-color: #d32f2f;
+}
+
+li {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+select {
+    padding: 5px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 120px; /* Limita a largura máxima */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #4CAF50;
+    background-color: #f9f9f9;
+    outline: none;
+}
+
+option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.container {
+    text-align: center;
+    margin-top: 10%;
+}
+
+select:hover {
+    border-color: #45a049;
+}
+
+option:disabled {
+    color: #aaa;
+}
+
+option:checked {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Tema alternativo (azul ciano e quase preto) */
+body.alt-theme {
+    background-color: #212121;
+    color: #ccc;
+}
+
+body.alt-theme h1 {
+    color: #00bcd4;
+}
+
+body.alt-theme input[type="text"]:focus {
+    border-color: #00bcd4;
+}
+
+body.alt-theme button {
+    background-color: #00bcd4;
+}
+
+body.alt-theme .btn-remover{
+    background-color: #7b1616;
+}
+
+body.alt-theme .btn-remover:hover {
+    background-color: #460c0c;
+}
+
+body.alt-theme button:hover {
+    background-color: #0097a7;
+}
+
+body.alt-theme ol {
+    background-color: #212121;
+}
+
+body.alt-theme li {
+    background-color: #333;
+    color: #fff;
+}
+
+body.alt-theme select {
+    background-color: #333;
+    color: #fff;
+    border-color: #00bcd4;
+}
+
+body.alt-theme option:checked {
+    background-color: #00bcd4;
+    color: white;
+}
+
+/* Estilo do botão para mudar o tema no canto superior direito */
+.position-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1em;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.position-button:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas pequenas (celulares) */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    input[type="text"] {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    button {
+        width: 50%;
+    }
+
+    ol {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    select {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Para telas médias (tablets) */
+@media (min-width: 601px) and (max-width: 900px) {
+    input[type="text"], ol, select {
+        width: 90%;
+        max-width: 80%;
+    }
+
+    button {
+        width: 50%;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <button class="position-button" onclick="toggleTheme()">Mudar Tema</button>
+
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+
+        <input type="text" placeholder="Digite a tarefa" id="tarefa" required>
+        <select name="" id="categoria">
+            <option value="" disabled selected>Categoria</option>
+            <option value="🏠">Casa</option>
+            <option value="🧑‍💼">Trabalho</option>
+        </select>
+        <button onclick="salvarTarefa()">Salvar Tarefa</button>
+
+        <ol id="listaDeTarefas">
+            <!-- Lista de tarefas vai aparecer aqui -->
+        </ol>
+    </div>
+
+    <script>
+        const olHTML = document.getElementById("listaDeTarefas");
+
+        async function baixarTarefas() {
+            var tarefas = await fetch("http://localhost:8080/tarefas");
+            var listaDeTarefas = await tarefas.json();
+
+            olHTML.innerHTML = "";
+            listaDeTarefas.forEach((tarefa) => {
+                const li = document.createElement("li");
+                li.innerHTML = tarefa.categoria + " " + tarefa.tarefa + `<button class='btn-remover' onclick='excluirTarefa(${tarefa.id})'>Excluir</button>`;
+                olHTML.appendChild(li);
+            });
+        }
+
+        async function salvarTarefa() {
+            let tarefa = document.getElementById("tarefa").value;
+            let categoria = document.getElementById("categoria").value;
+            if (tarefa.trim() === "") {
+                alert("Por favor, digite uma tarefa!");
+                return;
+            }
+            let req = await fetch("http://localhost:8080/tarefa", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ tarefa, categoria }),
+            });
+            baixarTarefas();
+            document.getElementById("tarefa").value = ""; // Limpar o campo de input após salvar
+        }
+
+        async function excluirTarefa(index) {
+            let req = await fetch("http://localhost:8080/tarefa/" + index, { method: "DELETE" });
+            baixarTarefas();
+        }
+
+        // Baixar tarefas ao carregar a página
+        baixarTarefas();
+
+        function toggleTheme() {
+    // Alterna a classe 'alt-theme' no body
+    document.body.classList.toggle('alt-theme');
+}
+
+    </script>
+
+</body>
+
+</html>
